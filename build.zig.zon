@@ -5,7 +5,7 @@
     .repository = "https://github.com/ziex-dev/ziex",
     .homepage = "https://ziex.dev",
     .fingerprint = 0x249409a7bd1c7667,
-    .minimum_zig_version = "0.17.0-dev.1465+8b2d0ce21",
+    .minimum_zig_version = "0.17.0-dev.2131+d08989840",
     .dependencies = .{
         // Ziex JS - The JavaScript glue code for csr/wasi/cloudflare/aws-lambda/vercel/react
         .ziex_js = .{
@@ -22,8 +22,8 @@
             .lazy = true,
         },
         .zls = .{
-            .url = "git+https://github.com/ziex-dev/zls.git?ref=patch/zx#2782776cf40c455855dc97f39d15ea60ab34c70b",
-            .hash = "zls-0.17.0-dev-rmm5fkNQJQAK5pfjMZzNxiMUgVYe2aBUZC-xasy_yOlu",
+            .url = "git+https://github.com/ziex-dev/zls.git?ref=patch/zx#721bcd00f36e074f74fb69e3d44be353bababf30",
+            .hash = "zls-0.17.0-dev-rmm5fvJGJQC-IZSLLSmxpVOpl7ABuawWoMS9xgtVB2fU",
             .lazy = true,
         },
         .lsp_kit = .{
