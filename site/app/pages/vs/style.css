@@ -1,24 +1,26 @@
-:root {
-    --zx-primary: #00d9ff;
-    --zx-primary-light: #33e0ff;
-    --zx-white: #ffffff;
-    --zx-border: #262626;
-    --zx-card-bg: #111111;
-    --zx-gray-light: #b0b8c1;
-    --zx-text-muted: #a1a1a1;
-}
-
 .vs-main {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 3rem 1.25rem 5rem;
+    padding: 7rem 1.25rem 5rem;
+    color: var(--text-color);
+}
+
+.vs-main a:not(.btn),
+.vs-framework-page a:not(.btn) {
+    color: var(--link-color);
+}
+
+.vs-main a:not(.btn):hover,
+.vs-framework-page a:not(.btn):hover {
+    color: var(--link-hover-color);
 }
 
 .vs-hero {
-    border: 1px solid var(--zx-border);
+    border: 1px solid var(--border-color);
     border-radius: 18px;
     padding: 2.2rem;
-    background: linear-gradient(145deg, rgba(0, 217, 255, 0.08), rgba(17, 17, 17, 0.92));
+    background:
+        linear-gradient(145deg, color-mix(in srgb, var(--zx-primary) 10%, transparent), var(--panel-bg));
     margin-bottom: 1.8rem;
 }
 
@@ -27,7 +29,7 @@
     font-size: 0.75rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--zx-primary-light);
+    color: var(--link-color);
     margin-bottom: 0.85rem;
 }
 
@@ -35,10 +37,11 @@
     font-size: clamp(2rem, 4.6vw, 3.4rem);
     line-height: 1.1;
     margin-bottom: 0.8rem;
+    color: var(--text-color);
 }
 
 .vs-subtitle {
-    color: var(--zx-text-muted);
+    color: var(--subtitle-color);
     font-size: 1.05rem;
     max-width: 62ch;
 }
@@ -68,25 +71,35 @@
     transform: translateY(-1px);
 }
 
+.btn:focus-visible,
+.vs-framework-link:focus-visible,
+.vs-table a:focus-visible {
+    outline: 2px solid var(--link-color);
+    outline-offset: 2px;
+}
+
 .btn-primary {
-    color: #001218;
-    background: linear-gradient(135deg, var(--zx-primary), #00ffd8);
-    border-color: transparent;
+    color: var(--bg-color);
+    background: var(--link-color);
+    border-color: var(--link-color);
 }
 
 .btn-primary:hover {
-    background: linear-gradient(135deg, var(--zx-primary-light), #3dffe3);
+    background: var(--link-hover-color);
+    border-color: var(--link-hover-color);
+    color: var(--bg-color);
 }
 
 .btn-secondary {
-    color: var(--zx-white);
-    background: rgba(255, 255, 255, 0.02);
-    border-color: var(--zx-border);
+    color: var(--text-color);
+    background: transparent;
+    border-color: var(--border-color);
 }
 
 .btn-secondary:hover {
-    background: rgba(255, 255, 255, 0.06);
-    border-color: rgba(255, 255, 255, 0.2);
+    background: var(--hover-bg);
+    border-color: color-mix(in srgb, var(--link-color) 55%, var(--border-color));
+    color: var(--link-color);
 }
 
 .vs-highlights {
@@ -97,15 +110,16 @@
 }
 
 .vs-highlight {
-    border: 1px solid var(--zx-border);
+    border: 1px solid var(--border-color);
     border-radius: 14px;
     padding: 1rem;
-    background: var(--zx-card-bg);
+    background: var(--panel-bg);
+    color: var(--text-color);
 }
 
 .vs-highlight-label {
     font-size: 0.8rem;
-    color: var(--zx-gray-light);
+    color: var(--subtitle-color);
     text-transform: uppercase;
     letter-spacing: 0.06em;
 }
@@ -114,16 +128,18 @@
     font-size: 1.08rem;
     font-weight: 700;
     margin: 0.45rem 0;
+    color: var(--text-color);
 }
 
 .vs-highlight-note {
-    color: var(--zx-text-muted);
+    color: var(--prose-color);
     font-size: 0.9rem;
 }
 
 .vs-section-title {
     font-size: 1.3rem;
     margin: 1.8rem 0 1rem;
+    color: var(--text-color);
 }
 
 .vs-framework-grid {
@@ -133,10 +149,11 @@
 }
 
 .vs-framework-card {
-    border: 1px solid var(--zx-border);
+    border: 1px solid var(--border-color);
     border-radius: 14px;
     padding: 1rem;
-    background: linear-gradient(180deg, rgba(17, 17, 17, 0.95), rgba(13, 13, 13, 0.96));
+    background: var(--panel-bg);
+    color: var(--text-color);
 }
 
 .vs-framework-top {
@@ -149,15 +166,16 @@
 .vs-framework-name {
     font-size: 1.1rem;
     font-weight: 700;
+    color: var(--text-color);
 }
 
 .vs-framework-rps {
-    color: var(--zx-primary-light);
+    color: var(--link-color);
     font-weight: 700;
 }
 
 .vs-framework-tagline {
-    color: var(--zx-text-muted);
+    color: var(--prose-color);
     margin: 0.6rem 0 0.9rem;
     min-height: 2.6em;
 }
@@ -169,13 +187,17 @@
 }
 
 .vs-framework-link {
-    color: var(--zx-primary-light);
+    color: var(--link-color);
     text-decoration: none;
     font-size: 0.92rem;
 }
 
+.vs-framework-link:hover {
+    color: var(--link-hover-color);
+}
+
 .vs-table-wrap {
-    border: 1px solid var(--zx-border);
+    border: 1px solid var(--border-color);
     border-radius: 14px;
     overflow: hidden;
     margin-top: 1.1rem;
@@ -184,23 +206,33 @@
 .vs-table {
     width: 100%;
     border-collapse: collapse;
-    background: rgba(10, 10, 10, 0.9);
+    background: var(--panel-bg);
+    color: var(--text-color);
 }
 
 .vs-table th,
 .vs-table td {
     padding: 0.8rem 0.9rem;
-    border-bottom: 1px solid var(--zx-border);
+    border-bottom: 1px solid var(--border-color);
     text-align: left;
     font-size: 0.93rem;
 }
 
 .vs-table th {
-    color: var(--zx-gray-light);
+    color: var(--subtitle-color);
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     font-size: 0.75rem;
+    background: var(--hover-bg);
+}
+
+.vs-table a {
+    color: var(--link-color);
+}
+
+.vs-table a:hover {
+    color: var(--link-hover-color);
 }
 
 .vs-table tr:last-child td {
@@ -208,12 +240,12 @@
 }
 
 .vs-rank {
-    color: var(--zx-primary-light);
+    color: var(--link-color);
     font-weight: 700;
 }
 
 .vs-footnote {
-    color: var(--zx-text-muted);
+    color: var(--subtitle-color);
     font-size: 0.9rem;
     margin-top: 0.9rem;
 }
@@ -222,31 +254,34 @@
 .vs-framework-wrap {
     max-width: 1120px;
     margin: 0 auto;
-    padding: 3rem 1.25rem 5rem;
+    padding: 7rem 1.25rem 5rem;
+    color: var(--text-color);
 }
 
 .vs-framework-hero {
-    border: 1px solid var(--zx-border);
+    border: 1px solid var(--border-color);
     border-radius: 16px;
     padding: 2rem;
-    background: linear-gradient(145deg, rgba(0, 217, 255, 0.08), rgba(17, 17, 17, 0.95));
+    background:
+        linear-gradient(145deg, color-mix(in srgb, var(--zx-primary) 10%, transparent), var(--panel-bg));
 }
 
 .vs-framework-eyebrow {
     font-size: 0.76rem;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    color: var(--zx-primary-light);
+    color: var(--link-color);
     margin-bottom: 0.75rem;
 }
 
 .vs-framework-title {
     font-size: clamp(1.8rem, 4vw, 3rem);
     margin-bottom: 0.65rem;
+    color: var(--text-color);
 }
 
 .vs-framework-subtitle {
-    color: var(--zx-text-muted);
+    color: var(--subtitle-color);
     max-width: 70ch;
 }
 
@@ -258,22 +293,24 @@
 }
 
 .vs-quick-card {
-    border: 1px solid var(--zx-border);
+    border: 1px solid var(--border-color);
     border-radius: 12px;
     padding: 0.95rem;
-    background: var(--zx-card-bg);
+    background: var(--panel-bg);
+    color: var(--text-color);
 }
 
 .vs-quick-label {
     font-size: 0.75rem;
     text-transform: uppercase;
-    color: var(--zx-gray-light);
+    color: var(--subtitle-color);
     letter-spacing: 0.05em;
 }
 
 .vs-quick-value {
     margin-top: 0.45rem;
     font-weight: 600;
+    color: var(--text-color);
 }
 
 .vs-columns {
@@ -283,15 +320,30 @@
 }
 
 .vs-note-card {
-    border: 1px solid var(--zx-border);
+    border: 1px solid var(--border-color);
     border-radius: 12px;
     padding: 1rem;
-    background: linear-gradient(180deg, rgba(16, 16, 16, 0.95), rgba(12, 12, 12, 0.95));
+    background: var(--panel-bg);
+    color: var(--text-color);
 }
 
 .vs-note-card ul {
     margin: 0.65rem 0 0 1.1rem;
-    color: var(--zx-text-muted);
+    color: var(--prose-color);
+}
+
+.vs-note-card a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+.vs-note-card a:hover {
+    color: var(--link-hover-color);
+}
+
+.vs-note-card a:focus-visible {
+    outline: 2px solid var(--link-color);
+    outline-offset: 2px;
 }
 
 .vs-note-card li + li {
